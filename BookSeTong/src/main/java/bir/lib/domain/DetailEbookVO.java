@@ -6,7 +6,7 @@ public class DetailEbookVO {
 	private String pub;
 	private String img;
 	private int eb_price;
-	private String bnum;
+	private int bnum;
 	
 	
 	public DetailEbookVO() {
@@ -15,7 +15,7 @@ public class DetailEbookVO {
 
 
 	public DetailEbookVO(String title, String author, String pub, String img,
-			int eb_price, String bnum) {
+			int eb_price, int bnum) {
 		super();
 		this.title = title;
 		this.author = author;
@@ -76,12 +76,12 @@ public class DetailEbookVO {
 	}
 
 
-	public String getBnum() {
+	public int getBnum() {
 		return bnum;
 	}
 
 
-	public void setBnum(String bnum) {
+	public void setBnum(int bnum) {
 		this.bnum = bnum;
 	}
 	

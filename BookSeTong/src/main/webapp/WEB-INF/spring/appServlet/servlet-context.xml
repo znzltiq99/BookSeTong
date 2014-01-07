@@ -25,8 +25,8 @@
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
 	
-	<context:component-scan base-package="bir.ebook.controller" />
-	<context:component-scan base-package="bir.ebook.impl" />
+	<context:component-scan base-package="bir.lib.controller" />
+	<context:component-scan base-package="bir.lib.impl" />
 
 	
 	<beans:bean id="ds" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
@@ -35,7 +35,7 @@
 		</beans:property>
 	
 		<beans:property name="url">
-			<beans:value>jdbc:oracle:thin:@127.0.0.1:1521:xe</beans:value>
+			<beans:value>jdbc:oracle:thin:@edki.cloudapp.net:1521:xe</beans:value>
 		</beans:property>
 		
 		<beans:property name="username">
@@ -51,12 +51,12 @@
     		spring-mybatis가 연동되서 작업 할때 필요한 객체 -->
     <beans:bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
         <beans:property name="dataSource" ref="ds" />
-        <beans:property name="typeAliasesPackage"   value="bir.ebook.domain" />
+        <beans:property name="typeAliasesPackage"   value="bir.lib.domain" />
     </beans:bean>
 
     <!-- Scan for mappers and let them be autowired -->
     <beans:bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-        <beans:property name="basePackage" 	value="bir.ebook.mapper" />
+        <beans:property name="basePackage" 	value="bir.lib.mapper" />
     </beans:bean>
 </beans:beans>
 

@@ -17,6 +17,8 @@
   <insert id="insertMember_info" parameterType="Member_infoVO">
   	insert into member_info values (#{email},#{name},#{pass},0,#{byear},#{bmonth},#{bday})
   </insert>
+<!-- ORA-00913: too many values -->
+
 
   <select id="checkLogin" resultMap="MemberResult" parameterType="Member_infoVO">
   	select email, name from member_info where email = #{email} and pass=#{pass} 
