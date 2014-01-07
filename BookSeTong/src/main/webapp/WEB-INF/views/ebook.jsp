@@ -398,7 +398,7 @@ function ebookbuy(bnum){
 	<hr id="hr">-->
 <div >
 	<div id="banner">
-		EBOOK으로 즐기세요! ebook리더 다운받기->
+		EBOOK으로 즐기세요! ebook리더 다운받기 와 시발 pull 성공이다->
 	<a href="http://www.adobe.com/kr/products/digital-editions.html" target="_blank"><img src="img/ebook.jpg" border="0" id="ebook"/></a>
 </div>
  
