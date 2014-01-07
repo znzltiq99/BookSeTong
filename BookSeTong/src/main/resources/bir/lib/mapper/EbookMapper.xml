@@ -3,7 +3,7 @@
    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <!-- xml mapper와 연동될 java mapper file 경로 -->
-<mapper namespace="bir.ebook.mapper.EbookMapper">
+<mapper namespace="bir.lib.mapper.EbookMapper">
 
 <!-- 리절트 맵 정의 -->
    <resultMap id="EbookResult"  type="EbookVO">

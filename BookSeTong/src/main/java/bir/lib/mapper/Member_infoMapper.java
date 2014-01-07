@@ -2,9 +2,7 @@ package bir.lib.mapper;
 
 import java.util.List;
 
-import bir.ebook.domain.Member_infoVO;
-
-
+import bir.lib.domain.Member_infoVO;
 
 
 public interface Member_infoMapper {

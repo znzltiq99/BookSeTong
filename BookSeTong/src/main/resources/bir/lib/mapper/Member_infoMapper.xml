@@ -3,7 +3,7 @@
    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="bir.ebook.mapper.Member_infoMapper">
+<mapper namespace="bir.lib.mapper.Member_infoMapper">
 
    <resultMap id="MemberResult"  type="Member_infoVO">
   		<result property="email" column="email"/>
