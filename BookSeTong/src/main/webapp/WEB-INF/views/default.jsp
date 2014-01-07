@@ -34,7 +34,7 @@ body {
 	color: #A0BB22;
 	width:85px;
 	height:78px;
-	background-image:url("logo.png");
+	background-image:url("resources/img/logo.png");
 	margin-top: 20px;
 	margin-left: 90px;
 }
@@ -61,7 +61,7 @@ body {
 }
 
 #nav li a {
-	background: url(bg-menu2.png) no-repeat center top;
+	background: url(resources/img/bg-menu2.png) no-repeat center top;
 	color: #fff;
 	display: block;
 	float: left;
@@ -78,7 +78,7 @@ body {
 }
 
 #nav li:first-child a {
-	background: url(bg-menu2.png) no-repeat left top;
+	background: url(resources/img/bg-menu2.png) no-repeat left top;
 	padding-left: 35px;
 }
 
@@ -88,7 +88,7 @@ body {
 }
 
 #nav li.pad {
-	background: url(bg-menu2.png) no-repeat right top;
+	background: url(resources/img/bg-menu2.png) no-repeat right top;
 	display: block;
 	height: 51px;
 	width: 35px;
@@ -146,7 +146,7 @@ body {
 	height: 113px;
 	top: 90px;
 	left: -1px;
-	background-image: url("filter_bg.png");
+	background-image: url("resources/img/filter_bg.png");
 	z-index: 3;
 }
 
@@ -166,7 +166,7 @@ body {
 	border: 1px solid black;
 	float: left;
 	margin: 3px;
-	background-image: url("profile.jpg");
+	background-image: url("resources/img/profile.jpg");
 }
 
 .profile h6 {
@@ -272,14 +272,14 @@ body {
 #search_btn {
 	width: 54px;
 	height: 28px;
-	background-image: url("search_btn.png");
+	background-image: url("resources/img/search_btn.png");
 	float: right;
 	margin-right: 350px;
 	margin-top: -6px;
 }
 
 #search_btn:HOVER {
-	background-image: url("search_btn_hover.png");
+	background-image: url("resources/img/search_btn_hover.png");
 }
 
 </style>
