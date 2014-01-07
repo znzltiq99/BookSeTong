@@ -33,6 +33,8 @@
    		<result property="point" column="point"/>
    </resultMap>  
    
+
+   
   <select id="getBooks" resultMap="EbookResult">
 	select * from ebook where eb_num=1
   </select>
@@ -47,12 +49,12 @@
 	from ebook e, book_info b where e.bnum = b.bnum
   </select>
   
-   <select id="getMemberStar" resultMap="MemberStarResult">
-	select m.snum, m.bnum, m.email, m.bstar from member_star m , ebook e where m.bnum = e.bnum
+   <select id="getMemberStar" resultMap="MemberStarResult" parameterType="String">
+	select m.snum, m.bnum, m.email, m.bstar from member_star m , ebook e where m.email = #{email} and m.bnum = e.bnum
   </select>
   
    <insert id="insertMemberStar"  parameterType="InsertMemberStarVO">
-   insert into member_star values(#{bnum},'suji',1,#{sval})
+   insert into member_star values(#{bnum},#{email},seq_memberstar.nextval,#{sval})
   </insert>
   
     <update id="updateMemberStar" parameterType="InsertMemberStarVO" >
@@ -64,14 +66,24 @@
 	from ebook e, book_info b where e.bnum = #{bnum} and e.bnum = b.bnum
   </select>
   
-   <select id="getDetailMemberInfo" resultMap="DetailMemberInfoResult">
-	select email, point from member_info where email='suji'
+   <select id="getDetailMemberInfo" resultMap="DetailMemberInfoResult" parameterType="String">
+	select email, point from member_info where email = #{email}
   </select>
   
   
    <update id="updateBmoney" parameterType="DetailMemberInfoVO" >
      update member_info set point=#{point} where email=#{email}
   </update> 
+  
+  <insert id="insertPointList"  parameterType="InsertListVO">
+   insert into point_list values(#{email},#{title},#{eb_point},substr(sysdate,0,2),substr(sysdate,4,2),substr(sysdate,7,2))
+  </insert>
+  
+  <insert id="insertPurchaseList"  parameterType="InsertListVO">
+   insert into b_purchase_list values(#{bnum},#{email},seq_b_purchase_list.nextval)
+  </insert>
+  
+   
   
 
     
