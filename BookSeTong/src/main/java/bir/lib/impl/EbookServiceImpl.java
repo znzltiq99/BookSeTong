@@ -6,17 +6,19 @@ import java.util.List;
 
 
 
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import bir.lib.domain.DetailEbookVO;
-import bir.lib.domain.DetailMemberInfoVO;
-import bir.lib.domain.EbookVO;
-import bir.lib.domain.InsertMemberStarVO;
-import bir.lib.domain.Member_starVO;
-import bir.lib.mapper.EbookMapper;
-import bir.lib.service.EbookService;
+import bir.ebook.domain.DetailEbookVO;
+import bir.ebook.domain.DetailMemberInfoVO;
+import bir.ebook.domain.EbookVO;
+import bir.ebook.domain.InsertListVO;
+import bir.ebook.domain.InsertMemberStarVO;
+import bir.ebook.domain.Member_starVO;
+import bir.ebook.service.EbookService;
+import bir.ebook.domain.EbookVO;
+import bir.ebook.mapper.EbookMapper;
+import bir.ebook.service.EbookService;
 
 
 @Component("ebook") 
@@ -44,8 +46,8 @@ public class EbookServiceImpl implements EbookService{
 	}
 	
 	@Override
-	public List<Member_starVO> getMemberStar() {
-		List<Member_starVO> list = mapper.getMemberStar();
+	public List<Member_starVO> getMemberStar(String email) {
+		List<Member_starVO> list = mapper.getMemberStar(email);
 		return list;
 	}
 
@@ -68,8 +70,8 @@ public class EbookServiceImpl implements EbookService{
 	}
 
 	@Override
-	public DetailMemberInfoVO getDetailMemberInfo() {
-		DetailMemberInfoVO vo= mapper.getDetailMemberInfo();
+	public DetailMemberInfoVO getDetailMemberInfo(String email) {
+		DetailMemberInfoVO vo= mapper.getDetailMemberInfo(email);
 		return vo;
 	}
 	
@@ -77,7 +79,21 @@ public class EbookServiceImpl implements EbookService{
 	public void updateBmoney(DetailMemberInfoVO vo) {
 		mapper.updateBmoney(vo);
 		
+	}
+
+	@Override
+	public void insertPointList(InsertListVO vo) {
+		mapper.insertPointList(vo);
+	}
+
+	@Override
+	public void insertPurchaseList(InsertListVO vo) {
+		mapper.insertPurchaseList(vo);
+		
 	}	
+	
+	
+	
 
 }
 
