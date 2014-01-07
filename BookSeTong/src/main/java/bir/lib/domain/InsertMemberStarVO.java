@@ -3,15 +3,17 @@ package bir.lib.domain;
 public class InsertMemberStarVO {
 	private String bnum;
 	private String sval;
+	private String email;
 	
-	public InsertMemberStarVO(String bnum, String sval) {
+	public InsertMemberStarVO() {
+		super();
+	}
+
+	public InsertMemberStarVO(String bnum, String sval, String email) {
 		super();
 		this.bnum = bnum;
 		this.sval = sval;
-	}
-
-	public InsertMemberStarVO() {
-		super();
+		this.email = email;
 	}
 
 	public String getBnum() {
@@ -30,5 +32,14 @@ public class InsertMemberStarVO {
 		this.sval = sval;
 	}
 
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
 	
+	
+
 }
