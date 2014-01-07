@@ -1,4 +1,4 @@
-package bir.ebook.domain;
+package bir.lib.domain;
 
 public class EbookVO {
 	private int bnum;

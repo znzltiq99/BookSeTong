@@ -1,21 +1,22 @@
-package bir.ebook.impl;
+package bir.lib.impl;
 
 import java.util.List;
+
+
+
 
 
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import bir.ebook.domain.DetailEbookVO;
-import bir.ebook.domain.DetailMemberInfoVO;
-import bir.ebook.domain.EbookVO;
-import bir.ebook.domain.InsertMemberStarVO;
-import bir.ebook.domain.Member_starVO;
-import bir.ebook.service.EbookService;
-import bir.ebook.domain.EbookVO;
-import bir.ebook.mapper.EbookMapper;
-import bir.ebook.service.EbookService;
+import bir.lib.domain.DetailEbookVO;
+import bir.lib.domain.DetailMemberInfoVO;
+import bir.lib.domain.EbookVO;
+import bir.lib.domain.InsertMemberStarVO;
+import bir.lib.domain.Member_starVO;
+import bir.lib.mapper.EbookMapper;
+import bir.lib.service.EbookService;
 
 
 @Component("ebook") 

@@ -1,12 +1,12 @@
-package bir.ebook.mapper;
+package bir.lib.mapper;
 
 import java.util.List;
 
-import bir.ebook.domain.DetailEbookVO;
-import bir.ebook.domain.DetailMemberInfoVO;
-import bir.ebook.domain.EbookVO;
-import bir.ebook.domain.InsertMemberStarVO;
-import bir.ebook.domain.Member_starVO;
+import bir.lib.domain.DetailEbookVO;
+import bir.lib.domain.DetailMemberInfoVO;
+import bir.lib.domain.EbookVO;
+import bir.lib.domain.InsertMemberStarVO;
+import bir.lib.domain.Member_starVO;
 
 
 public interface EbookMapper {

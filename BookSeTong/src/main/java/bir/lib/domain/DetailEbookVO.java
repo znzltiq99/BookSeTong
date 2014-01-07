@@ -1,4 +1,4 @@
-package bir.ebook.domain;
+package bir.lib.domain;
 
 public class DetailEbookVO {
 	private String title;

@@ -1,4 +1,4 @@
-package bir.ebook.domain;
+package bir.lib.domain;
 
 public class InsertMemberStarVO {
 	private String bnum;
