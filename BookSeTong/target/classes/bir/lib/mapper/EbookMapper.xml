@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- xml mapper와 연동될 java mapper file 경로 -->
+<mapper namespace="bir.lib.mapper.EbookMapper">
+
+<!-- 리절트 맵 정의 -->
+   <resultMap id="EbookResult"  type="EbookVO">
+   		<id property="eb_num" column="eb_num"></id>
+   		<result property="bnum" column="bnum"/>
+   		<result property="eb_price" column="eb_price"/>
+   </resultMap>   
+   
+   <resultMap id="DetailResult"  type="DetailEbookVO">
+   		<result property="title" column="title"/>
+   		<result property="author" column="author"/>
+   		<result property="pub" column="pub"/>
+   		<result property="img" column="img"/>
+   		<result property="eb_price" column="eb_price"/>
+   	    <result property="bnum" column="bnum"/>
+   </resultMap> 
+   
+   <resultMap id="MemberStarResult"  type="Member_starVO">
+   		<id property="snum" column="snum"></id>
+   		<result property="bnum" column="bnum"/>
+   		<result property="email" column="email"/>
+   		<result property="bstar" column="bstar"/>
+   </resultMap>    
+   
+   <resultMap id="DetailMemberInfoResult"  type="DetailMemberInfoVO">
+   		<id property="email" column="email"></id>
+   		<result property="point" column="point"/>
+   </resultMap>  
+   
+
+   
+  <select id="getBooks" resultMap="EbookResult">
+	select * from ebook where eb_num=1
+  </select>
+  
+   <select id="getEbooks" resultMap="EbookResult">
+	select * from ebook order by eb_num
+  </select>
+  
+  
+  <select id="getDetailEbooks" resultMap="DetailResult">
+	select b.title, b.author, b.pub, b.img, e.eb_price, e.bnum
+	from ebook e, book_info b where e.bnum = b.bnum
+  </select>
+  
+   <select id="getMemberStar" resultMap="MemberStarResult" parameterType="String">
+	select m.snum, m.bnum, m.email, m.bstar from member_star m , ebook e where m.email = #{email} and m.bnum = e.bnum
+  </select>
+  
+   <insert id="insertMemberStar"  parameterType="InsertMemberStarVO">
+   insert into member_star values(#{bnum},#{email},seq_memberstar.nextval,#{sval})
+  </insert>
+  
+    <update id="updateMemberStar" parameterType="InsertMemberStarVO" >
+     update member_star set bstar=#{sval} where bnum=#{bnum}
+  </update>
+  
+   <select id="getDetailEbook" resultMap="DetailResult" parameterType="int">
+	select b.title, b.author, b.pub, b.img, e.eb_price, e.bnum
+	from ebook e, book_info b where e.bnum = #{bnum} and e.bnum = b.bnum
+  </select>
+  
+   <select id="getDetailMemberInfo" resultMap="DetailMemberInfoResult" parameterType="String">
+	select email, point from member_info where email = #{email}
+  </select>
+  
+  
+   <update id="updateBmoney" parameterType="DetailMemberInfoVO" >
+     update member_info set point=#{point} where email=#{email}
+  </update> 
+  
+  <insert id="insertPointList"  parameterType="InsertListVO">
+   insert into point_list values(#{email},#{title},#{eb_point},substr(sysdate,0,2),substr(sysdate,4,2),substr(sysdate,7,2))
+  </insert>
+  
+  <insert id="insertPurchaseList"  parameterType="InsertListVO">
+   insert into b_purchase_list values(#{bnum},#{email},seq_b_purchase_list.nextval)
+  </insert>
+  
+   
+  
+
+    
+</mapper>
