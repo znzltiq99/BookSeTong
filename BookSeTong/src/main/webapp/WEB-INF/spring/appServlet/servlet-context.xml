@@ -35,7 +35,7 @@
 		</beans:property>
 	
 		<beans:property name="url">
-			<beans:value>jdbc:oracle:thin:@edki.cloudapp.net:1521:xe</beans:value>
+			<beans:value>jdbc:oracle:thin:@127.0.0.1:1521:xe</beans:value>
 		</beans:property>
 		
 		<beans:property name="username">
