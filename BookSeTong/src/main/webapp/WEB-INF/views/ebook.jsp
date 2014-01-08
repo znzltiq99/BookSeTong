@@ -51,11 +51,40 @@
 		text-align:center;
 	}
 	
-.pic{width:160px; height:230px; }
+#pic{width:160px; height:230px; 
+     margin:50px auto 0;
+     opacity:1;/*이미지에 투명도가 반 들어감  범위는 0.1 ~ 1 까지 */
+     transition: 0.4s ease;/*transition효과로 롤오버했을때 부드럽게처리
+             자세한건 http://blog.naver.com/the_sara/130159973784 */
+     position:relative; /*감싸고있는 애한테 relative를적용*/
+     overflow: hidden;/*넘치는 부분 안보여지게*/
+     }
+     
+#pic:hover{border-color:#fff;
+    opacity:1;/*롤오버했을때 오퍼써티0.5인걸 다시 1로진하게 처리*/}
+    
+#pic span{width:160px; height:150px; 
+    display:block;/*span태그는 인라인요소기때문에 블럭처리 그래야 효과가 먹음*/
+    position:absolute;/*감싸져있고 포지션을 줄 애한테 absolute처리*/
+    left:0; bottom:-150px;/*span을 아래로 내려서 overflow:hidden으로 안보이게 처리*/
+    background:rgba(0,0,0,0.7);
+    opacity:0.5;
+    font:10px;
+    text-align:center;
+    color:#fff;
+    text-shadow:2px 2px 2px #000;
+    transition:0.3s ease; 
+    }
+    
+#pic img{width:160px; height:230px; }
+    
+#pic:hover span{bottom: 0;}/*hover했을때 span이 위로 올라옴*/
+     
 div{display:inline-block;}
 
 .fixbox{position:relative; position:absolute; top:240px; left:230px; width:850px;}	
 .fixbox img{cursor:pointer;}
+
 </style>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <title>Insert title here</title>
@@ -108,11 +137,13 @@ function ebookbuy(bnum){
 	<c:forEach var="row" items="${list}">
 	<% cnt=0; %>
 	  <div>
-		  <img class="pic" src="resources/img/${row.img}"></img><br>
-		  	${row.title}<br>
-		  	${row.author}<br>
-		 	${row.pub}<br>
-		  	${row.eb_price}<br>
+	      <div id="pic">
+		  <img src="resources/img/${row.img}"></img><br>
+		  <span> 
+		 	 ${row.title}<br>${row.author}<br>${row.pub}<br>${row.eb_price}<br>
+		  	 <input type="button" value="구매하기" onclick="ebookbuy(${row.bnum})">
+		  </span>
+	      </div><br>
 		    <c:forEach var="row2" items="${memberstar_list}">
 		    <c:if test="${row.bnum == row2.bnum}">
 		        <% cnt=1; %>
@@ -164,7 +195,7 @@ function ebookbuy(bnum){
 		   		<img src="resources/img/empty_star.png" onclick="insert(${row.bnum},4)"/>
 		   		<img src="resources/img/empty_star.png" onclick="insert(${row.bnum},5)"/>
 		    <%}%>
-      	 <br><input type="button" value="구매하기" onclick="ebookbuy(${row.bnum})">
+    
       	
       </div>
 	</c:forEach>
@@ -173,6 +204,8 @@ function ebookbuy(bnum){
 </div>
 <form id="f" name="f" method="post">
 </form>
+
+
 
 </body>
 </html>
